@@ -18,7 +18,7 @@ email: brettbradleycampbell@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Saint Maverick is a digital design and marketing agency. 
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://brettbradleycampbell.github.io/saintmaverick/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://brettbradleycampbell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
