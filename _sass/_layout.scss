@@ -2,25 +2,27 @@ body {
 	margin: 0;
 	color: $font-color;
 	font-family: $font-style;
-	font-size: 1.1em;
+	font-size: 1em;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
+}
+img {
+	max-width: 100%;
 }
 h1,
 h2,
 h3 {
 	font-weight: 600;
-	color: $heading-font-color;
+	color: $heading-color;
 	font-family: $heading-font;
 	line-height: 1.5;
 }
 h1 {
-	color: $main;
+	color: $heading-color;
 	font-size: 2.5em;
 	a,
 	a:visited {
 		text-decoration: none;
-		color: $main;
 	}
 }
 h2 {
@@ -29,49 +31,37 @@ h2 {
 a,
 a:visited {
 	color: $link-color;
-	text-decoration: underline;
-	font-weight: bold;
+	text-decoration: none;
 }
 a:hover {
 	color: $link-hover-color;
-	text-decoration: underline;
 }
-header {
-	background: $header;
-	padding: 0px 15px;
-	text-align: center;
-	margin: 50px 0 0;
-	height: 50vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-main {
-	padding: 0 15px;
+
+main, .container {
+	width: 90%;
 	max-width: $content-width;
 	margin: 0 auto;
+	@include media-query($medium) {
+		width: 80%;
+	}
+	@include media-query($large-up) {
+		width: 100%;
+	}
 }
 time {
 	color: #898989;
 }
-.container {
-	max-width: $content-width;
-	margin: 0 auto;
-}
 
-/* Aside */
-
-aside {
-	position: fixed;
-	top: 0;
-	left: 0;
-	background: #fff;
+header {
 	width: 100%;
-	z-index: 2;
-	border-bottom: 1px solid lighten($light, 30%);
-	box-shadow: 0px 1px 1px RGBA(4, 25, 54, .1);
+	margin: 80px 0;
+	h1 {
+		display: inline-block;
+		margin: 0;
+		font-size: 1em;
+	}
 	nav {
-		float: left;
+		float: right;
 		max-width: 800px;
 		margin: 0 auto;
 		ul {
@@ -82,18 +72,10 @@ aside {
 				float: left;
 				position: relative;
 				a {
-					text-decoration: none;
-					display: block;
-					padding: 15px;
-					font-family: 'Muli', sans-serif;
-					line-height: 20px;
-					margin-bottom: -1px;
-					box-shadow: 0;
+					margin-left: 40px;
 					&:hover,
 					&:active {
-						background: $header;
 						text-decoration: none;
-						color: $main;
 					}
 				}
 			}
@@ -109,3 +91,75 @@ footer {
 	text-align: center;
 	padding: 40px;
 }
+
+// Homepage
+
+.homepage-services {
+	position: relative;
+	h1 {
+		padding: 200px 80px;
+		font-size: 3em;
+		a {
+			display: table;
+  			@include transition(color .1s, transform .4s);
+  			&:hover {
+				@include transform(translate(.5em, 0));
+  			}
+		}	
+	}
+}
+.hero-container {
+	position: relative;
+}
+.hero {
+	position: absolute;
+	background: #f0f1f2;
+	height: 380px;
+	width: 100%;
+}
+.homepage-client {
+	@include media-query($medium-up) {
+		width: 80%;
+	}
+	margin-bottom: 140px;
+	position: relative;
+	float: left;
+	&.right {
+		float: right;
+	}
+	img {
+		display: block; //removes phantom space below image
+	}
+	.illustration-programmer {
+		position: absolute;
+		top: -310px;
+		right: -110px;
+		width: 160px;
+	}
+	.homepage-client-overlay {
+		position: absolute;
+		bottom: 0;
+		padding: 40px;
+		&.white {
+			p, h2 {
+				color: #fff;
+			}
+		}
+		p {
+			text-transform: uppercase;
+			font-size: 14px;
+			letter-spacing: 6px;
+		}
+		p, h2 {
+			margin: 0;
+		}
+	}
+}
+	.image-flip {
+		-moz-transform: scaleX(-1);
+		-o-transform: scaleX(-1);
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+		filter: FlipH;
+		-ms-filter: "FlipH";
+	}

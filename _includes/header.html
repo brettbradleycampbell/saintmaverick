@@ -1,19 +1,22 @@
-<aside>
+<header>
 	<div class="container">
+		<h1>
+			<a href="{{ site.url }}">
+				<div style="visibility: hidden; height: 0;">{{ site.title }}</div>
+				<img src="{{ '/assets/logo.svg' | absolute_url }}" width="200">
+			</a>
+		</h1>
+
 		<nav>
 			<ul>
 				{% for page in site.pages %} {% if page.title %}
 				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
 				{% endif %} {% endfor %}
-				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
+				<!--<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>-->
 			</ul>
 			</li>
 			</ul>
 		</nav>
 	</div>
-</aside>
-
-<header>
-	<h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
 </header>
  
